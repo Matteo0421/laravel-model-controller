@@ -2,9 +2,23 @@
 
 @section('content')
 
-<h1>Home</h1>
+<h3 class="text-center text-danger m-3">THE MOST VIEWED FILMS OF THE WEEK</h3>
 
-<table class="table">
+<div class="container d-flex flex-wrap justify-content-center ">
+    @foreach ($movies as $movie )
+<div class="card col-4 m-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{$movie->title}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{$movie->original_title}}</h6>
+      <p class="card-text">{{$movie->nationality}}</p>
+      <p class="card-text">{{$movie->date}}</p>
+      <p class="card-text">{{$movie->vote}}</p>
+    </div>
+  </div>
+@endforeach
+</div>
+
+{{-- <table class="table">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -18,27 +32,18 @@
     <tbody>
         @foreach ($movies as $movie )
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{$movie->title}}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">{{$movie->original_title}}</h6>
-              <p class="card-text">{{$movie->nationality}}</p>
-              <p class="card-text">{{$movie->date}}</p>
-              <p class="card-text">{{$movie->vote}}</p>
-            </div>
-          </div>
 
-        {{-- <tr>
+        <tr>
             <th >{{$movie->id}}</th>
             <th >{{$movie->title}}</th>
             <th >{{$movie->original_title}}</th>
             <th >{{$movie->nationality}}</th>
             <th >{{$movie->date}}</th>
             <th >{{$movie->vote}}</th>
-        </tr> --}}
+        </tr>
         @endforeach
 
 
     </tbody>
-  </table>
+  </table> --}}
 @endsection
