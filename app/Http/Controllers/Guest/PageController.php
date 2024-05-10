@@ -12,8 +12,21 @@ class PageController extends Controller
 
 
         $movies = Movie ::all();
+        $title_1 = 'THE MOST VIEWED FILMS OF THE WEEK';
 
-        return view('home', compact('movies'));
+        return view('home', compact('movies','title_1'));
+    }
+
+    public function bestFilms(){
+        $movies = Movie ::where('vote','>=',9)
+
+           ->orderBy('title')
+           ->get();
+
+           $title_1 = 'MOVIE WITH A RATING OF 9+';
+
+
+        return view('home', compact('movies','title_1'));
     }
 
     public function nuovaPagina(){

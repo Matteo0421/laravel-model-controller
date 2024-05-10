@@ -2,11 +2,12 @@
 
 @section('content')
 
-<h3 class="text-center text-danger m-3">THE MOST VIEWED FILMS OF THE WEEK</h3>
+<h3 class="text-center text-danger m-3">{{$title_1}}</h3>
 
 <div class="container d-flex flex-wrap justify-content-center ">
     @foreach ($movies as $movie )
 <div class="card col-4 m-3" style="width: 18rem;">
+    <img src="{{$movie->img}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{$movie->title}}</h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">{{$movie->original_title}}</h6>
